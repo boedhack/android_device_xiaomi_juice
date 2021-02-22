@@ -30,7 +30,6 @@ import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.qcom.test.rc
 import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.qcom.factory.rc
-import /vendor/etc/init/hw/init.qcom.power.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -1147,3 +1146,9 @@ service nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service.st
     user nfc
     group nfc
     disabled
+
+service vendor.power /vendor/bin/hw/android.hardware.power-service-qti
+    override
+    class hal
+    user system
+    group system input
