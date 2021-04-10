@@ -179,5 +179,12 @@ PRODUCT_PACKAGES += \
     TelephonyResCommon \
     WifiResCommon
 
+# NFC
+PRODUCT_PACKAGES += \
+    NfcNci \
+    Tag \
+    SecureElement \
+    com.android.nfc_extras
+
 -include $(LOCAL_PATH)/product_prop.mk
 -include $(LOCAL_PATH)/system_prop.mk
