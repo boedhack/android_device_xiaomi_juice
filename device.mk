@@ -48,7 +48,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     tinymix \
-    libaudio-resampler
+    libaudio-resampler \
+    libvolumelistener
 
 # Audio Configs
 PRODUCT_COPY_FILES += \
