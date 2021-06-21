@@ -155,6 +155,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.mdm.sh \
+    init.mi.btmac.sh \
     init.qcom.early_boot.sh \
     init.qcom.efs.sync.sh \
     init.qcom.post_boot.sh \
