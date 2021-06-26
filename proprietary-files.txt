@@ -157,7 +157,6 @@ vendor/bin/hostapd_cli
 vendor/bin/host_manager_11ad
 vendor/bin/hostname
 vendor/bin/hvdcp_opti
-vendor/bin/hw/android.hardware.atrace@1.0-service
 vendor/bin/hw/android.hardware.audio.service
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
@@ -426,7 +425,6 @@ vendor/etc/group
 vendor/etc/hostapd/hostapd.accept
 vendor/etc/hostapd/hostapd_default.conf
 vendor/etc/hostapd/hostapd.deny
-vendor/etc/init/android.hardware.atrace@1.0-service.rc
 vendor/etc/init/android.hardware.audio.service.rc
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
@@ -752,7 +750,6 @@ vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
 vendor/etc/thermal-youtube.conf
 vendor/etc/tzlog.dict
--vendor/etc/vintf/manifest/android.hardware.atrace@1.0-service.xml
 -vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml
 -vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml
 -vendor/etc/vintf/manifest/android.hardware.graphics.mapper-impl-qti-display.xml
