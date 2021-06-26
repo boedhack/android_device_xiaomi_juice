@@ -98,6 +98,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     disable_configstore
 
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.3-service.clearkey \
+    libclearkeycasplugin \
+    libdrmclearkeyplugin
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
