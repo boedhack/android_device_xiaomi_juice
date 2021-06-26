@@ -172,9 +172,7 @@ vendor/bin/hw/android.hardware.keymaster@4.1-service-qti
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti
 vendor/bin/hw/android.hardware.nfc@1.2-service.st
 vendor/bin/hw/android.hardware.usb@1.2-service-qti
-vendor/bin/hw/android.hardware.wifi@1.0-service
 vendor/bin/hw/capabilityconfigstoretest
-vendor/bin/hw/hostapd
 vendor/bin/hw/qcrild
 vendor/bin/hw/vendor.display.color@1.0-service
 vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
@@ -195,7 +193,6 @@ vendor/bin/hw/vendor.qti.power.pasrmanager@1.0-service
 vendor/bin/hw/vendor.xiaomi.hardware.misys@1.0-service
 vendor/bin/hw/vendor.xiaomi.hardware.misys@2.0-service
 vendor/bin/hw/vendor.xiaomi.hardware.misys@3.0-service
-vendor/bin/hw/wpa_supplicant
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
 vendor/bin/imsrcsd
@@ -438,7 +435,6 @@ vendor/etc/init/android.hardware.ir@1.0-service.rc
 vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc
 vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc
 vendor/etc/init/android.hardware.usb@1.2-service-qti.rc
-vendor/etc/init/android.hardware.wifi@1.0-service.rc
 vendor/etc/init/android.hardware.wifi.supplicant-service.rc
 vendor/etc/init/boringssl_self_test.rc
 vendor/etc/init/cnd.rc
@@ -754,7 +750,6 @@ vendor/etc/tzlog.dict
 -vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti.xml
 -vendor/etc/vintf/manifest/android.hardware.sensors@2.0-multihal.xml
 -vendor/etc/vintf/manifest/android.hardware.usb@1.2-service.xml
--vendor/etc/vintf/manifest/android.hardware.wifi@1.0-service.xml
 -vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
 -vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mfidoca.xml
 -vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mlipay.xml
@@ -776,7 +771,6 @@ vendor/etc/wifi_log.cfg
 vendor/etc/wifi/sar-vendor-cmd.xml
 vendor/etc/wifi/wigig_p2p_supplicant.conf
 vendor/etc/wifi/wigig_supplicant.conf
-vendor/etc/wifi/wpa_supplicant_overlay.conf
 vendor/etc/XiaoAiNiZaiNa.uim
 vendor/etc/XiaoAiTongXue.uim
 vendor/etc/xtra_root_cert.pem
@@ -1109,7 +1103,6 @@ vendor/lib64/libcheckpid.so
 vendor/lib64/libchilog.so
 vendor/lib64/libchrome.so
 vendor/lib64/libcirrusspkrprot.so
-vendor/lib64/libcld80211.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
 vendor/lib64/libcneqmiutils.so
@@ -1425,15 +1418,11 @@ vendor/lib64/libwa_rtdof.so
 vendor/lib64/libwebrtc_audio_preprocessing.so
 vendor/lib64/libwfddisplayconfig_proprietary.so
 vendor/lib64/libwfdhdcpcp.so
-vendor/lib64/libwifi-hal-ctrl.so
-vendor/lib64/libwifi-hal-qcom.so
-vendor/lib64/libwifi-hal.so
 vendor/lib64/libwigig_flashaccess.so
 vendor/lib64/libwigig_ftm_flows.so
 vendor/lib64/libwigig_pciaccess.so
 vendor/lib64/libwigig_utils.so
 vendor/lib64/libwms.so
-vendor/lib64/libwpa_client.so
 vendor/lib64/libwqe.so
 vendor/lib64/libwvhidl.so
 vendor/lib64/libwvkeybox.so
@@ -1874,7 +1863,6 @@ vendor/lib/libcheckpid.so
 vendor/lib/libchilog.so
 vendor/lib/libchrome.so
 vendor/lib/libcirrusspkrprot.so
-vendor/lib/libcld80211.so
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneoplookup.so
 vendor/lib/libcneqmiutils.so
@@ -2195,14 +2183,11 @@ vendor/lib/libwfduibcsink_proprietary.so
 vendor/lib/libwfduibcsrcinterface_proprietary.so
 vendor/lib/libwfduibcsrc_proprietary.so
 vendor/lib/libwfdutils_proprietary.so
-vendor/lib/libwifi-hal-ctrl.so
-vendor/lib/libwifi-hal-qcom.so
 vendor/lib/libwigig_flashaccess.so
 vendor/lib/libwigig_ftm_flows.so
 vendor/lib/libwigig_pciaccess.so
 vendor/lib/libwigig_utils.so
 vendor/lib/libwms.so
-vendor/lib/libwpa_client.so
 vendor/lib/libwqe.so
 vendor/lib/libwvkeybox.so
 vendor/lib/libxml.so
