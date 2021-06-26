@@ -122,6 +122,11 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
+# Infrared
+PRODUCT_PACKAGES += \
+    android.hardware.ir@1.0-service \
+    android.hardware.ir@1.0-impl
+
 # Init
 PRODUCT_PACKAGES += \
     getwlansar.sh \
