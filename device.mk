@@ -37,9 +37,20 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@6.0-impl \
-    android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
+    android.hardware.audio.common-util \
+    android.hardware.audio.common@2.0-util \
+    android.hardware.audio.common@4.0-util \
+    android.hardware.audio.common@5.0-util \
+    android.hardware.audio.common@6.0-util \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio.effect@4.0-impl \
+    android.hardware.audio.effect@5.0-impl \
+    android.hardware.audio.effect@6.0-impl \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio@4.0-impl \
+    android.hardware.audio@5.0-impl \
+    android.hardware.audio@6.0-impl \
     vendor.qti.hardware.audiohalext@1.0 \
     vendor.qti.hardware.audiohalext-utils
 
@@ -49,7 +60,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     tinymix \
     libaudio-resampler \
-    libvolumelistener
+    libvolumelistener \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc
 
 # Audio Configs
 PRODUCT_COPY_FILES += \
