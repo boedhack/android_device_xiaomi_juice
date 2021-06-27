@@ -1309,7 +1309,6 @@ vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/librilqmiservices.so
 vendor/lib64/libril.so
 vendor/lib64/librilutils.so
-vendor/lib64/librmnetctl.so
 vendor/lib64/librpmb.so
 vendor/lib64/lib-rtpcommon.so
 vendor/lib64/lib-rtpcore.so
@@ -2025,7 +2024,6 @@ vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/librilqmiservices.so
 vendor/lib/libril.so
 vendor/lib/librilutils.so
-vendor/lib/librmnetctl.so
 vendor/lib/librpmb.so
 vendor/lib/lib-rtpcommon.so
 vendor/lib/lib-rtpcore.so

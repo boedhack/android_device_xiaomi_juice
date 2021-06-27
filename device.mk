@@ -212,6 +212,10 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/media/,$(TARGET_COPY_OUT_VENDOR)/etc) \
     $(LOCAL_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_ODM)/etc/media_profiles_V1_0.xml
 
+# Mobile data
+PRODUCT_PACKAGES += \
+    librmnetctl
+
 # NFC
 PRODUCT_PACKAGES += \
     NfcNci \
