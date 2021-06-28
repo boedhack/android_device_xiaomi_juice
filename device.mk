@@ -77,6 +77,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     BluetoothQti
 
+# CAS
+PRODUCT_PACKAGES += \
+    android.hardware.cas@1.2-service
+
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
