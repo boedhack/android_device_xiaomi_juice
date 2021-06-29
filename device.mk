@@ -51,6 +51,8 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@4.0-impl \
     android.hardware.audio@5.0-impl \
     android.hardware.audio@6.0-impl \
+    android.hardware.soundtrigger@2.2-impl \
+    android.hardware.soundtrigger@2.3-impl \
     vendor.qti.hardware.audiohalext@1.0 \
     vendor.qti.hardware.audiohalext-utils
 
