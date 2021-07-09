@@ -266,8 +266,6 @@ vendor/bin/tloc_daemon
 vendor/bin/vendor_cmd_tool
 vendor/bin/vendor.qti.hardware.soter@1.0-provision
 vendor/bin/vendor.qti.qspmhal@1.0-service
-vendor/bin/vndservice
-vendor/bin/vndservicemanager
 vendor/bin/vsimd
 vendor/bin/wbrf_bin2
 vendor/bin/wdsdaemon
@@ -493,7 +491,6 @@ vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.mtdservice@1.2-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.tidaservice@1.2-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.vsimapp@1.0-service.rc
-vendor/etc/init/vndservicemanager.rc
 vendor/etc/init/wfdvndservice.rc
 vendor/etc/IPACM_cfg.xml
 vendor/etc/izat.conf

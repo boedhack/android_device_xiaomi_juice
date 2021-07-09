@@ -361,6 +361,10 @@ PRODUCT_PACKAGES += \
     TelephonyResCommon \
     WifiResCommon
 
+# Vendor service manager
+PRODUCT_PACKAGES += \
+    vndservicemanager
+
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
