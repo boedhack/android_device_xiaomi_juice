@@ -26,13 +26,6 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 #
-# dong add
-#xiong add scancode
-import init.mishow.ctl.rc
-
-on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_q6_pdr audio_q6_notifier audio_snd_event audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_lpi audio_swr audio_swr_ctrl audio_platform audio_stub audio_wcd_core audio_wcd9xxx audio_wsa881x_analog audio_bolero_cdc audio_va_macro audio_rx_macro audio_tx_macro audio_mbhc audio_wcd937x audio_wcd937x_slave audio_pm2250_spmi audio_aw87359_audio audio_aw87519_audio audio_rouleur audio_rouleur_slave audio_machine_bengal
-    write /proc/sys/kernel/sched_boost 1
 
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
@@ -42,7 +35,6 @@ on init
     write /dev/stune/system-background/schedtune.colocate 0
     write /dev/stune/foreground/schedtune.colocate 0
     write /dev/stune/top-app/schedtune.colocate 1
-    #Moving to init as this is needed for qseecomd
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
     start vendor.qseecomd
@@ -53,7 +45,7 @@ on early-fs
 
 on fs
     start hwservicemanager
-    mount_all --early
+    mount_all /vendor/etc/fstab.qcom --early
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
@@ -76,9 +68,9 @@ on post-fs
 on late-fs
     wait_for_prop hwservicemanager.ready true
     exec_start wait_for_keymaster
-    mount_all --late
+    mount_all /vendor/etc/fstab.qcom --late
 
-# Start services for bootanim
+    # Start services for bootanim
     start vendor.configstore-hal
     start surfaceflinger
     start bootanim
@@ -87,30 +79,34 @@ on late-fs
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
     mkdir /data/vendor/tloc 0700 system drmrpc
-
-#xiong porting
-# jiangxueqin To create thermal and config directories, you must first create thermal and then create config
-#    mkdir /data/vendor/.tp/ 0775 system system
     mkdir /data/vendor/thermal 0771 root system
     mkdir /data/vendor/thermal/config 0771 root system
     mkdir /data/vendor/mac_addr 0771 system system
     mkdir /data/vendor/charge_logger 0771 system system
     chmod 0777 /vendor/bin/scancode_bin
 
-on early-boot
-
 on boot
-# wuzhisen change Define cpu set for audio app. This is to optimize
-# audio scheduling against lpm exit latencies
-    write /dev/cpuset/audio-app/cpus 1-2
-    chown system system /sys/kernel/hbtp/display_pwr
+    wait /sys/class/power_supply/battery/temp
     start rmt_storage
     start rfs_access
+    start mi_thermald
 
-#xiong jiangxueqin To realize the communication between framework and thermal, we need to implement sys node in kernel
+    service mi_thermald /system/vendor/bin/mi_thermald
+    class main
+    user root
+    group system
+    seclabel u:r:mi_thermald:s0
+
+    write /dev/cpuset/audio-app/cpus 1-2
+    chown system system /sys/kernel/hbtp/display_pwr
+
    chown system system /sys/class/thermal/thermal_message/sconfig
+    
+    # Touchpanel
+    chown system system /sys/touchpanel/double_tap
+    chmod 0777 /sys/touchpanel/double_tap
 
-#USB controller configuration
+    # USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
     setprop vendor.usb.rmnet.func.name "gsi"
     setprop vendor.usb.rmnet.inst.name "rmnet"
@@ -118,17 +114,15 @@ on boot
     setprop vendor.usb.qdss.inst.name "qdss"
     setprop vendor.usb.controller 4e00000.dwc3
 
-#HQ-83664  wifi sar function by wangzhengyuan at 20200727
+    # Wi-Fi sar function
     copy /vendor/etc/wifi/sar-vendor-cmd.xml /data/sar-vendor-cmd.xml
 
-#fingerprint
-    #goodix
+    # Fingerprint goodix
     chown system system /dev/goodix_fp
     chmod 0777 /dev/goodix_fp
     mkdir /data/vendor/goodix
     chmod 0777 /data/vendor/goodix
 
-    # add for fpc 
     chown system system /sys/bus/platform/devices/soc/soc:fpc1020/compatible_all
     chmod 0666 /sys/bus/platform/devices/soc/soc:fpc1020/compatible_all
     chown system system /sys/bus/platform/devices/soc/soc:fpc1020/irq
@@ -142,20 +136,21 @@ on boot
     
     chown system system /dev/qseecom
     chmod 0666 /dev/qseecom
-    #display
+
     chmod 0666 /sys/devices/platform/soc/5e00000.qcom,mdss_mdp/backlight/panel0-backlight/brightness
     chmod 0666 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dsi_display_cabc
     chmod 0666 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dsi_display_cabc_still
     chmod 0666 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dsi_display_cabc_movie
 
-    #focaltech
+    # Focaltech
     chown system system /dev/focaltech_fp
     chmod 0777 /dev/focaltech_fp
+
     # fingerprint focaltech
     mkdir /data/vendor/focaltech 0760 system system
     restorecon /data/vendor/focaltech
 
-    #cdfinger
+    # Cdfinger
     chown system system /dev/fpsdev0
     chmod 0777 /dev/fpsdev0
 
@@ -188,12 +183,9 @@ on boot
     chmod 0777 /mnt/vendor/persist/camera/rear_dc_cal_wd.bin
     chmod 0777 /mnt/vendor/persist/camera/mi_calib_2k_output.bin
 
-# We want all cores for NFC
+    # NFC
     chmod 0666 /dev/st21nfc
     chown nfc nfc /dev/st21nfc
-
-#Load WLAN driver
-    insmod /vendor/lib/modules/qca_cld3_wlan.ko
 
 on boot && property:persist.vendor.usb.controller.default=*
     setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
@@ -202,24 +194,17 @@ on property:vendor.usb.controller=*
     setprop sys.usb.controller ${vendor.usb.controller}
 
 on charger
+    wait /sys/class/power_supply/battery/temp
+    start mi_thermald
     start vendor.power_off_alarm
     setprop vendor.usb.controller 4e00000.dwc3
     setprop sys.usb.configfs 1
-#jiangxueqin start mi_thermald
-    start mi_thermald
-    service mi_thermald /system/vendor/bin/mi_thermald
-    class main
-    user root
-    group system
-    seclabel u:r:mi_thermald:s0
 
-#pd-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core
     user system
     group system
 
-#Peripheral manager
 service vendor.per_mgr /vendor/bin/pm-service
     class core
     user system
@@ -266,17 +251,6 @@ service displayfeature /system/bin/displayfeature
     group system root
     oneshot
 
-# add PcbaConfigSet by tanrong
-service PcbaConfigSet /system/vendor/bin/PcbaConfigSet
-    class core
-    user root
-    group root system vendor_qti_diag
-    oneshot
-    seclabel u:r:PcbaConfigSet:s0
-    
-on boot
-    start PcbaConfigSet
-
 on property:sys.boot.hwc=*
     setprop ro.boot.hwc ${sys.boot.hwc}
 on property:sys.boot.cpuid=*
@@ -306,7 +280,6 @@ service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -t HELIUM
    group system wifi inet sdcard_rw media_rw diag
    oneshot
 
-#xiong add charge_logger
 service charge_logger vendor/bin/charge_logger
    class late_start
    user system
@@ -317,13 +290,10 @@ service charge_logger vendor/bin/charge_logger
 on property:sys.boot_completed=1
    start charge_logger
 
-#xiong add charge_logger
 on property:sys.boot_completed=1
    chmod 0666 /data/vendor/charge_logger/charge_logger_a.csv
    chmod 0666 /data/vendor/charge_logger/charge_logger_b.csv
 
-#xiong add scancode
-#add for scancode_bin by jiangxueqin_20200820_start
 service scancode /vendor/bin/scancode_bin
     class core
     user root
@@ -346,7 +316,6 @@ service maxcurrent_incall /vendor/bin/scancode_bin m 1
     disabled
 on property:sys.m.incall=1
     start maxcurrent_incall
-#add for scancode_bin by jiangxueqin_20200820_end
 
 service wbrf_service /system/bin/wbrf_bin
     class main
@@ -358,16 +327,6 @@ service wbrf_service2 /vendor/bin/wbrf_bin2
     socket myguard2 stream 0660 system system
     disabled
 
-########### FTM begin ##########
-########### FTM begin ##########
-########### FTM begin ##########
-## add for ap diag begin
-service hwdiag system/bin/hwdiag
-    class core
-    user root
-    seclabel u:r:diag_test:s0
-## add for ap diag end
-
 # dual bokeh
 on property:vendor.camera.bokeh.disable=1
     setprop persist.vendor.camera.bokeh.preview 1
@@ -375,9 +334,6 @@ on property:vendor.camera.bokeh.disable=1
 on property:vendor.camera.bokeh.disable=0
     setprop persist.vendor.camera.bokeh.preview 0
 
-
-on boot
-    start hwdiag
     chown root root /sys/class/huaqin/interface/hw_info/lcm
     chmod 0666 /sys/class/huaqin/interface/hw_info/lcm
     chown root root /sys/class/graphics/fb0/msm_fb_wpoint
@@ -390,13 +346,13 @@ on boot
     chmod 0666 /sys/class/graphics/fb0/msm_fb_bpoint
     chown root root /dev/graphics/fb0
     chmod 0666 /dev/graphics/fb0
-    #add  vibrator access
+
     chmod 0777 /sys/bus/platform/devices/soc:aw8622/duration
     chmod 0777 /sys/bus/platform/devices/soc:aw8622/activate
-    ##led
+
     chmod 0777 /sys/class/leds/led:torch_0/brightness
     chmod 0777 /sys/class/leds/led:switch_0/brightness
-    #add ini
+
     chmod 0777 /proc/android_touch/self_test
     chmod 0777 /vendor/etc/focal/focaltech_mp_fw_huaxing.ini
     chown system system /vendor/etc/focal/focaltech_mp_fw_huaxing.ini
@@ -404,13 +360,11 @@ on boot
     copy /vendor/etc/focal/focaltech_mp_fw_huaxing.ini /data/vendor/focaltech/focaltech_mp_fw_huaxing.ini
     chown system system /data/vendor/focaltech/focaltech_mp_fw_huaxing.ini
     chmod 0777 /data/vendor/focaltech/focaltech_mp_fw_huaxing.ini
-    #xiong add
+
     chmod 0777 /sys/class/power_supply/battery/input_suspend
     chmod 0777 /sys/class/power_supply/battery/constant_charge_current_max
-    #add for ignoring modem crash
-    write /sys/bus/msm_subsys/devices/subsys3/restart_level related
 
-    #add for ignoring adsp crash
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level related
     write /sys/bus/msm_subsys/devices/subsys0/restart_level related
 
 service dcvs-sh /vendor/bin/init.qti.dcvs.sh
@@ -431,10 +385,6 @@ service panel_color /vendor/bin/panelcolor_bin
 
 on property:sys.boot_completed=1
     start panel_color
-
-########### FTM end ##########
-########### FTM end ##########
-########### FTM end ##########
 
 service checknv /system/bin/checknv
     class main
@@ -480,9 +430,5 @@ on property:sys.boot_completed=1
     stop boot_log_crash
     stop boot_log_kernel
     
-# Force disable hw overlays to be true
+    # Force disable hw overlays to be true
     exec - root -- /system/bin/sh -c "service call SurfaceFlinger 1008 i32 1"
-    
-# Touchpanel
-    chown system system /sys/touchpanel/double_tap
-    chmod 0777 /sys/touchpanel/double_tap
