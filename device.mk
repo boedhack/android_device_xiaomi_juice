@@ -131,9 +131,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/targetconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetconfig.xml \
     $(LOCAL_PATH)/configs/perf/targetresourceconfigs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetresourceconfigs.xml
 
-# Properties
-PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
-
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
@@ -194,6 +191,3 @@ PRODUCT_PACKAGES += \
     Tag \
     SecureElement \
     com.android.nfc_extras
-
--include $(LOCAL_PATH)/product_prop.mk
--include $(LOCAL_PATH)/system_prop.mk
