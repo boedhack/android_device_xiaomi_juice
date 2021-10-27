@@ -52,6 +52,10 @@ PRODUCT_PACKAGES += \
     tinymix \
     libaudio-resampler
 
+# Audio Configs
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     BluetoothQti
