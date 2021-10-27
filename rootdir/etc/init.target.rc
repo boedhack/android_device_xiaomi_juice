@@ -71,10 +71,11 @@ on late-fs
     exec_start wait_for_keymaster
     mount_all --late
 
+# Start services for bootanim
+    start vendor.configstore-hal
     start surfaceflinger
     start bootanim
-    start vendor.hwcomposer-2-4
-    start vendor.qti.hardware.display.allocator
+    start vendor.gralloc-2-0
 
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
