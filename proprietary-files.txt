@@ -1,3 +1,5 @@
+# Proprietary files - from lime:11/RKQ1.201004.002/21.10.20:user/release-keys build, All pinned
+
 # System
 -app/SoterService/SoterService.apk
 -framework/tcmclient.jar
@@ -1581,7 +1583,6 @@ vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
 vendor/etc/thermal-youtube.conf
 vendor/etc/tzlog.dict
--vendor/etc/vintf/compatibility_matrix.xml
 -vendor/etc/vintf/manifest/android.hardware.atrace@1.0-service.xml
 -vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml
 -vendor/etc/vintf/manifest/android.hardware.dumpstate@1.1-service.xiaomi.xml
@@ -1609,7 +1610,6 @@ vendor/etc/tzlog.dict
 -vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@1.0.xml
 -vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@2.0.xml
 -vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@3.0.xml
--vendor/etc/vintf/manifest.xml
 vendor/etc/wfdconfig.xml
 vendor/etc/wifi/aoa_cldb_falcon.bin
 vendor/etc/wifi/aoa_cldb_swl14.bin
