@@ -899,8 +899,6 @@ vendor/firmware/scuba_ipa_fws.mdt
 vendor/firmware/st21nfc_fw7.bin
 vendor/firmware/st21nfc_fw.bin
 vendor/firmware/wigig/wigig.ini
-vendor/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
-vendor/firmware/wlan/qca_cld/wlan_mac.bin
 vendor/framework/com.fingerprints.extension.jar
 vendor/lib64/android.hardware.audio.common@2.0-util.so
 vendor/lib64/android.hardware.audio.common@4.0-util.so
