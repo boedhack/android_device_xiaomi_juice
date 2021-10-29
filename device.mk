@@ -139,7 +139,21 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/media/,$(TARGET_COPY_OUT_VENDOR)/etc)
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/media/,$(TARGET_COPY_OUT_VENDOR)/etc) \
+    $(LOCAL_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_ODM)/etc/media_profiles_V1_0.xml
+
+# NFC
+PRODUCT_PACKAGES += \
+    NfcNci \
+    Tag \
+    SecureElement \
+    com.android.nfc_extras
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/nfc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_lemon/android.hardware.nfc.hcef.xml \
+    $(LOCAL_PATH)/configs/nfc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_lemon/android.hardware.nfc.hce.xml \
+    $(LOCAL_PATH)/configs/nfc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_lemon/android.hardware.nfc.uicc.xml \
+    $(LOCAL_PATH)/configs/nfc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_lemon/android.hardware.nfc.xml
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -228,10 +242,3 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
-
-# NFC
-PRODUCT_PACKAGES += \
-    NfcNci \
-    Tag \
-    SecureElement \
-    com.android.nfc_extras
