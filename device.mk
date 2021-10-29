@@ -84,8 +84,7 @@ PRODUCT_PACKAGES += \
 
 # Fstab
 PRODUCT_PACKAGES += \
-    fstab.default \
-    fstab.emmc
+    fstab.qcom
 
 # Health
 PRODUCT_PACKAGES += \
