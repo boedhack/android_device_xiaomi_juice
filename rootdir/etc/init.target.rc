@@ -263,7 +263,6 @@ service displayfeature /system/bin/displayfeature
 service displayfeatureqservice /vendor/bin/hw/displayfeatureqservice
     class hal
     user system
-    interface vendor.xiaomi.hardware.displayfeatureqservice@1.0::IDisplayFeatureQservice default
     group system root
     oneshot
 
