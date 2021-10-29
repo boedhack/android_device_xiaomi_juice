@@ -83,8 +83,9 @@ PRODUCT_PACKAGES += \
     qcom.fmradio
 
 # Fstab
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default
+PRODUCT_PACKAGES += \
+    fstab.default \
+    fstab.emmc
 
 # Health
 PRODUCT_PACKAGES += \
@@ -93,8 +94,36 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
+    getwlansar.sh \
+    init.class_main.sh \
+    init.crda.sh \
+    init.mdm.sh \
+    init.mi.usb.sh \
+    init.qcom.class_core.sh \
+    init.qcom.coex.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sdio.sh \
+    init.qcom.sh \
+    init.qcom.usb.sh \
+    init.qti.chg_policy.sh \
+    init.qti.dcvs.sh \
+    init.qti.media.sh \
+    init.qti.qcv.sh \
+    qca6234-service.sh \
+    setwlansarhigh.sh \
+    setwlansarlow.sh
+
+PRODUCT_PACKAGES += \
     init.mi_thermald.rc \
-    init.target.rc
+    init.qcom.factory.rc \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    init.qti.ufs.rc \
+    init.stnfc.rc \
+    init.target.rc \
+    ueventd.qcom.rc
 
 # Input
 PRODUCT_COPY_FILES += \

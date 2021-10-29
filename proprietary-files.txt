@@ -150,7 +150,6 @@ vendor/bin/ftmdaemon
 vendor/bin/ftm_flows_test
 vendor/bin/ftmtest
 vendor/bin/garden_app
-vendor/bin/getwlansar.sh
 vendor/bin/hal_proxy_daemon
 vendor/bin/hdcp1prov
 vendor/bin/hdcp2p2prov
@@ -208,23 +207,7 @@ vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
 vendor/bin/imsrcsd
 vendor/bin/ims_rtp_daemon
-vendor/bin/init.class_main.sh
-vendor/bin/init.crda.sh
-vendor/bin/init.mdm.sh
-vendor/bin/init.mi.usb.sh
-vendor/bin/init.qcom.class_core.sh
-vendor/bin/init.qcom.coex.sh
-vendor/bin/init.qcom.early_boot.sh
-vendor/bin/init.qcom.efs.sync.sh
-vendor/bin/init.qcom.post_boot.sh
-vendor/bin/init.qcom.sdio.sh
 vendor/bin/init.qcom.sensors.sh
-vendor/bin/init.qcom.sh
-vendor/bin/init.qcom.usb.sh
-vendor/bin/init.qti.chg_policy.sh
-vendor/bin/init.qti.dcvs.sh
-vendor/bin/init.qti.media.sh
-vendor/bin/init.qti.qcv.sh
 vendor/bin/ipacm
 vendor/bin/ipacm-diag
 vendor/bin/irsc_util
@@ -257,7 +240,6 @@ vendor/bin/port-bridge
 vendor/bin/power_off_alarm
 vendor/bin/poweroffm64
 vendor/bin/ppd
-vendor/bin/qca6234-service.sh
 vendor/bin/qcc-trd
 vendor/bin/qdcmss
 vendor/bin/qmi-framework-tests/qmi_test_mt_client_init_instance
@@ -274,8 +256,6 @@ vendor/bin/scancode_bin
 vendor/bin/secure_ui_sample_client
 vendor/bin/sensors.qti
 vendor/bin/setsardiag
-vendor/bin/setwlansarhigh.sh
-vendor/bin/setwlansarlow.sh
 vendor/bin/shell_11ad
 vendor/bin/sigma_dut
 vendor/bin/slim_daemon
@@ -443,7 +423,6 @@ vendor/etc/flp.conf
 vendor/etc/focal/focaltech_mp_fw_huaxing.ini
 vendor/etc/fs_config_dirs
 vendor/etc/fs_config_files
-vendor/etc/fstab.emmc
 vendor/etc/ftm_test_config
 vendor/etc/ftm_test_config_bengal-qrd-snd-card
 vendor/etc/ftm_test_config_bengal-scubaidp-snd-card
@@ -485,12 +464,6 @@ vendor/etc/init/dataqti.rc
 vendor/etc/init/displayfeatureqservice.rc
 vendor/etc/init/dpmQmiMgr.rc
 vendor/etc/init/hostapd.android.rc
-vendor/etc/init/hw/init.qcom.factory.rc
-vendor/etc/init/hw/init.qcom.rc
-vendor/etc/init/hw/init.qcom.usb.rc
-vendor/etc/init/hw/init.qti.ufs.rc
-vendor/etc/init/hw/init.stnfc.rc
-vendor/etc/init/hw/init.target.rc
 vendor/etc/init/imsdatadaemon.rc
 vendor/etc/init/imsqmidaemon.rc
 vendor/etc/init/imsrcsd.rc
@@ -2635,7 +2608,6 @@ vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql
-vendor/ueventd.rc
 
 # WiFi Display
 -framework/WfdCommon.jar
