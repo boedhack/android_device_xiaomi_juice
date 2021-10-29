@@ -73,6 +73,9 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libvulkan
 
+PRODUCT_PACKAGES += \
+    disable_configstore
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
