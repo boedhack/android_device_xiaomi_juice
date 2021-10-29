@@ -297,10 +297,6 @@ vendor/bin/wpa_cli
 vendor/bin/xtra-daemon
 vendor/bin/xtwifi-client
 vendor/bin/xtwifi-inet-agent
-vendor/build_lemon.prop
-vendor/build_lime.prop
-vendor/build_pomelo.prop
-vendor/build.prop
 vendor/etc/acdbdata/adsp_avs_config.acdb
 vendor/etc/acdbdata/IDP/bengal-scubaidp-snd-card/IDP_Scuba_Bluetooth_cal.acdb
 vendor/etc/acdbdata/IDP/bengal-scubaidp-snd-card/IDP_Scuba_General_cal.acdb
