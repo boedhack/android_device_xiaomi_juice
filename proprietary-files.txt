@@ -822,7 +822,6 @@ vendor/etc/tzlog.dict
 -vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mtdservice.xml
 -vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.tidaservice.xml
 -vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.vsimapp.xml
--vendor/etc/vintf/manifest/manifest.xml
 -vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
 -vendor/etc/vintf/manifest/vendor.qti.hardware.display.allocator-service.xml
 -vendor/etc/vintf/manifest/vendor.qti.hardware.display.composer-service.xml
