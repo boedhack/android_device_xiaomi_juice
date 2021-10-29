@@ -9,3 +9,6 @@ type pps_socket, file_type;
 
 # sysfs
 type sysfs_kgsl, sysfs_type, fs_type;
+
+#iio
+type vendor_sysfs_iio, fs_type, sysfs_type;
