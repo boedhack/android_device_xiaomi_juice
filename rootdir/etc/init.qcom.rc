@@ -1154,3 +1154,10 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
 
 on init && property:ro.boot.hwc=INDIA
     setprop ro.boot.product.hardware.sku lemon
+    start nfc_hal_service
+
+service nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service.st
+    class hal
+    user nfc
+    group nfc
+    disabled
