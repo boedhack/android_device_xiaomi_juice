@@ -260,16 +260,9 @@ service closead /system/vendor/bin/displayf_bin s 0
     oneshot
     disabled
     
-#add display by hanwenhao
 service displayfeature /system/bin/displayfeature
     class hal
     user root
-    group system root
-    oneshot
-
-service displayfeatureqservice /vendor/bin/hw/displayfeatureqservice
-    class hal
-    user system
     group system root
     oneshot
 
