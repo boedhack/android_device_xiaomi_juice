@@ -42,7 +42,3 @@
             echo 10 > $latfloor/polling_interval
         done
     done;
-
-    # configure input boost settings
-    echo "0:1017600" > /sys/devices/system/cpu/cpu_boost/input_boost_freq
-    echo 80 > /sys/devices/system/cpu/cpu_boost/input_boost_ms
